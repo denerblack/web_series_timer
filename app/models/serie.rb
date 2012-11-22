@@ -7,12 +7,11 @@ class Serie
   attr_accessor :last_episode
 
   def initialize
-    @all_episodes = {}
+    @all_episodes = [] 
   end
   
   def find_episodes(name)
     parse_all SeriesTimer::SeriesManager.all_episodes(name.cap_words,"")
-   # @all_episodes = SeriesTimer::SeriesManager.all_episodes(name.cap_words,"")
     @next_episode = Episode.new to_array(SeriesTimer::SeriesManager.next_episode(name.cap_words,""))
     @last_episode = Episode.new to_array(SeriesTimer::SeriesManager.last_episode(name.cap_words,""))
   end
@@ -31,8 +30,6 @@ class Serie
   def parse_all(array_of_full_description)
     array_of_full_description.each do |full_description|
        episode = Episode.new to_array(full_description)
-    #   @all_episodes[episode.season] ||=[]
-    #   @all_episodes[episode.season] << episode
        @all_episodes << episode
     end 
     
