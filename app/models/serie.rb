@@ -41,8 +41,8 @@ class Serie
     formatted_array = []
     unless full_description.nil?
       split_up = full_description.split(/[\t]/)
-      serie, season_episode = split_up[0].split(" ")
-      season, episode = season_episode.split(/\[(.*?)\]/)[1..2]
+      serie, season_episode = split_up[0].split(/\[(.*?)\]/)[1..2]
+      season, episode = season_episode.split(/[A-Za-z]/)[1..2]
       name = split_up[1].strip
       date_ep = split_up[2][0..10].strip
 
