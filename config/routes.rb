@@ -15,6 +15,7 @@ WebSeriesTimer::Application.routes.draw do
 
   namespace :api do
     match 'series_timer/find_serie/:name', :controller => 'series_timer', :action => 'find_serie', :format => 'json' 
+    match 'series_timer/force_find_serie/:name', :controller => 'series_timer', :action => 'force_find_serie', :format => 'json' 
   end
   
   # Sample resource route with options:

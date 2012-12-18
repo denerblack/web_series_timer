@@ -10,10 +10,10 @@ class Serie
     @all_episodes = [] 
   end
   
-  def find_episodes(name)
-    parse_all SeriesTimer::SeriesManager.all_episodes(name.cap_words,"")
-    @next_episode = Episode.new to_array(SeriesTimer::SeriesManager.next_episode(name.cap_words,""))
-    @last_episode = Episode.new to_array(SeriesTimer::SeriesManager.last_episode(name.cap_words,""))
+  def find_episodes(name,option = "")
+    parse_all SeriesTimer::SeriesManager.all_episodes(name.cap_words,option)
+    @next_episode = Episode.new to_array(SeriesTimer::SeriesManager.next_episode(name.cap_words,option))
+    @last_episode = Episode.new to_array(SeriesTimer::SeriesManager.last_episode(name.cap_words,option))
   end
 
   def to_api
